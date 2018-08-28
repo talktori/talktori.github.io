@@ -46,14 +46,21 @@ export default `
   }
 
   html, body {
-    font-family: 'Lato', sans-serif;
+    width: 100%;
+    height: 100%;
+    font-family: 'Futura', sans-serif;
     font-size: 16px;
     word-wrap: break-word;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
-    color: ${theme.textColorLight};
+    color: ${theme.textColor};
+    background: ${theme.backgroundColor};
+  }
+
+  html {
+      position: relative;
   }
 
   * {

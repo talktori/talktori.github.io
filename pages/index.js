@@ -1,66 +1,162 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 import Layout from '../components/layout';
-import HeaderContainer from '../components/header-container';
-import Button from '../components/button';
-import What from '../sections/what';
-import Benefits from '../sections/benefits';
-import App from '../sections/app';
-import Try from '../sections/try';
+import EarlyAccess from '../components/early-access';
 
-const H1 = styled.h1`
-  font-weight: 700;
-  color: white;
-  font-size: 42px;
-  line-height: 42px;
-  text-align: center;
-  padding: 0 15px;
+const Wrap = styled.header`
+  position: relative;
+`;
 
-  @media (min-width: 800px) {
-    font-size: 50px;
-    line-height: 50px;
+const Header = styled.header`
+  height: 40px;
+  padding: 15px 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+const HideOnMobile = styled.span`
+  @media (max-width: 767px) {
+    display: none;
   }
 `;
 
-const Description = styled.h3`
-  color: white;
-  width: 70%;
-  margin: 15px auto 0 auto;
-  display: block;
-  letter-spacing: 0;
-  line-height: 22px;
-  text-align: center;
+const Logo = styled.img`
+  width: 184px;
+  height: 40px;
+  display: inline-block;
 `;
 
-const GetStartedWrap = styled.div`
-  text-align: center;
-  margin-top: 15px;
+const Content = styled.section`
+  max-width: 1100px;
+  min-height: calc(100vh - 250px);
+  padding: 55px 24px 105px 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
-export default () => (
-  <Layout
-    ogTitle="AI English tutor"
-    ogDescription="Improve your English speaking skills and accent"
-  >
-    <HeaderContainer>
-      <H1>
-        AI English tutor
-      </H1>
-      <Description>
-        Improve your English speaking skills and accent
-        <br />
-      </Description>
-      <GetStartedWrap>
-        <Link href="/login">
-          <Button>Request demo</Button>
-        </Link>
-      </GetStartedWrap>
-    </HeaderContainer>
-    <What />
-    <Benefits />
-    <App />
-    <Try />
-  </Layout>
-);
+const Title = styled.h1`
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -0.96px;
+  line-height: 36px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+    line-height: 56px;
+  }
+`;
+
+const Description = styled.h2`
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.43px;
+  line-height: 24px;
+  padding: 16px 0 48px 0;
+`;
+
+const Footer = styled.footer`
+  max-width: 1100px;
+  padding: 32px 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  > a {
+    display: block;
+    margin: 25px 25px 0 0;
+    text-decoration: underline;
+    transition: all 200ms ease;
+
+    @media (min-width: 768px) {
+      margin: 0 50px 0 0;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+`;
+
+const Preview = styled.i`
+  width: 338px;
+  height: 682px;
+  display: inline-block;
+  background: url('/static/img/preview@2x.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    float: right;
+  }
+`;
+
+const Row = styled.div`
+  padding: 25px 0;
+  @media (min-width: 768px) {
+    padding: 0;
+    width: 50%;
+  }
+`;
+
+export default class extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      isSended: false,
+    };
+  }
+
+  onSend = () => {
+    this.setState({
+      isSended: true,
+    });
+  }
+
+  render() {
+    const { isSended } = this.state;
+
+    return (
+      <Layout>
+        <Wrap>
+          <Header>
+            <Logo src="/static/img/logo@2x.png" alt="Talk to Ri" />
+            <HideOnMobile>
+              <EarlyAccess isSended={isSended} onSend={this.onSend} />
+            </HideOnMobile>
+          </Header>
+          <Content>
+            <Row>
+              <Title>
+                Improve your professional communication in English
+              </Title>
+              <Description>Practice industry-specific conversations by voice</Description>
+              <EarlyAccess isSended={isSended} onSend={this.onSend} />
+            </Row>
+            <Row>
+              <Preview />
+            </Row>
+          </Content>
+          <Footer>
+            <a href="mailto:support@talktori.com">Support@talktori.com</a>
+            <a href="https://www.facebook.com/talktori/">Facebook</a>
+          </Footer>
+        </Wrap>
+      </Layout>
+    );
+  }
+}
