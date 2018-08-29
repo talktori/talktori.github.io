@@ -149,7 +149,7 @@ export default class extends React.Component {
           </Content>
           <Footer>
             <a href="mailto:support@talktori.com">Support@talktori.com</a>
-            <a href="https://www.facebook.com/talktori/">Facebook</a>
+            <a href="https://www.facebook.com/talktori/" target="_blank" rel="noopener noreferrer">Facebook</a>
           </Footer>
         </Wrap>
       </Layout>
