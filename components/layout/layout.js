@@ -17,7 +17,7 @@ const Layout = ({
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       {ogTitle && <meta property="og:title" content={ogTitle} />}
       {ogDescription && <meta property="og:description" content={ogDescription} />}
-      <meta property="og:image" content="https://talktori.com/static/img/screenshot.jpg" />
+      <meta property="og:image" content="https://talktori.com/static/img/screenshot.png" />
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     </Head>
     <style jsx global>{resetCSS}</style>
@@ -27,9 +27,9 @@ const Layout = ({
 );
 Layout.defaultProps = {
   title: 'AI English tutor',
-  description: 'Improve your English speaking skills and accent',
+  description: 'Improve your professional communication in English',
   ogTitle: 'AI English tutor',
-  ogDescription: 'Improve your English speaking skills and accent',
+  ogDescription: 'Improve your professional communication in English',
 };
 Layout.propTypes = {
   children: PropTypes.oneOfType([
