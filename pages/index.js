@@ -92,16 +92,12 @@ const Footer = styled.footer`
 const Preview = styled.i`
   width: 338px;
   height: 682px;
-  display: inline-block;
+  display: block;
   background: url('/static/img/preview@2x.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
-
-  @media (min-width: 768px) {
-    float: right;
-  }
 `;
 
 const Row = styled.div`
