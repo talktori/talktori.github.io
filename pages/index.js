@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
-import EarlyAccess from '../components/early-access';
 
 const Wrap = styled.header`
   position: relative;
@@ -17,15 +16,9 @@ const Header = styled.header`
   justify-content: space-between;
 `;
 
-const HideOnMobile = styled.span`
-  @media (max-width: 767px) {
-    display: none;
-  }
-`;
-
 const Logo = styled.img`
-  width: 184px;
-  height: 40px;
+  width: 175px;
+  height: 32px;
   display: inline-block;
 `;
 
@@ -44,7 +37,7 @@ const Content = styled.section`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: #FFFFFF;
   font-size: 28px;
   font-weight: bold;
@@ -66,11 +59,11 @@ const Description = styled.h2`
 `;
 
 const Footer = styled.footer`
-  max-width: 1100px;
   padding: 32px 24px;
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
 
   > a {
     display: block;
@@ -81,6 +74,10 @@ const Footer = styled.footer`
     @media (min-width: 768px) {
       margin: 0 50px 0 0;
       display: inline-block;
+
+      &:nth-child(3), :nth-child(4) {
+        float: right;
+      }
     }
 
     &:hover {
@@ -90,17 +87,20 @@ const Footer = styled.footer`
 `;
 
 const Preview = styled.i`
-  width: 338px;
-  height: 682px;
+  width: 100%;
+  min-width: 100px;
+  max-width: 515px;
+  height: 408px;
   display: block;
-  background: url('/static/img/preview@2x.png');
+  background: url('/static/img/preview-people@2x.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   margin: 0 auto;
 `;
 
 const Row = styled.div`
+  width: 100%;
   padding: 25px 0;
   @media (min-width: 768px) {
     padding: 0;
@@ -108,51 +108,66 @@ const Row = styled.div`
   }
 `;
 
-export default class extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+const Button = styled.a`
+  height: 48px;
+  padding: 0 32px;
+  border-radius: 28px;
+  background-color: #EB7D9A;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+`;
 
-    this.state = {
-      isSended: false,
-    };
-  }
+const ButtonContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 11px;
+`;
 
-  onSend = () => {
-    this.setState({
-      isSended: true,
-    });
-  }
+const AppleIcon = styled.i`
+  width: 24px;
+  height: 24px;
+  display: block;
+  background: url('/static/img/apple-icon@2x.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+`;
 
-  render() {
-    const { isSended } = this.state;
-
-    return (
-      <Layout>
-        <Wrap>
-          <Header>
-            <Logo src="/static/img/logo@2x.png" alt="Talk to Ri" />
-            <HideOnMobile>
-              <EarlyAccess isSended={isSended} onSend={this.onSend} />
-            </HideOnMobile>
-          </Header>
-          <Content>
-            <Row>
-              <Title>
-                Improve your professional communication in English
-              </Title>
-              <Description>Practice industry-specific conversations by voice</Description>
-              <EarlyAccess isSended={isSended} onSend={this.onSend} />
-            </Row>
-            <Row>
-              <Preview />
-            </Row>
-          </Content>
-          <Footer>
-            <a href="mailto:support@talktori.com">Support@talktori.com</a>
-            <a href="https://www.facebook.com/talktori/" target="_blank" rel="noopener noreferrer">Facebook</a>
-          </Footer>
-        </Wrap>
-      </Layout>
-    );
-  }
-}
+export default () => (
+  <Layout>
+    <Wrap>
+      <Header>
+        <Logo src="/static/img/logo2@2x.png" alt="Talk to Ri" />
+      </Header>
+      <Content>
+        <Row>
+          <Title>
+            Improve your professional communication in English
+          </Title>
+          <Description>Practice industry-specific conversations by voice</Description>
+          <Button href="https://itunes.apple.com/us/app/talk-to-ri-business-english/id1435391859?mt=8">
+            <ButtonContent>
+              <AppleIcon />
+              <h1>Download Talk to Ri</h1>
+            </ButtonContent>
+          </Button>
+        </Row>
+        <Row>
+          <Preview />
+        </Row>
+      </Content>
+      <Footer>
+        <a href="mailto:support@talktori.com">Support@talktori.com</a>
+        <a href="https://www.facebook.com/talktori/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="/privacy-policy.html">Privacy Poicy</a>
+        <a href="/terms-of-use.html">Terms of Use</a>
+      </Footer>
+    </Wrap>
+  </Layout>
+);
