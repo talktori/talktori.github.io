@@ -148,13 +148,13 @@ export default () => (
       <Content>
         <Row>
           <Title>
-            Improve your professional communication in English
+            English and soft skills for tech professionals
           </Title>
-          <Description>Practice industry-specific conversations by voice</Description>
+          <Description>Voice-based conversations trainer</Description>
           <Button href="https://itunes.apple.com/us/app/talk-to-ri-business-english/id1435391859?mt=8">
             <ButtonContent>
               <AppleIcon />
-              <h1>Download Talk to Ri</h1>
+              Download&nbsp;<h1>Talk to Ri</h1>
             </ButtonContent>
           </Button>
         </Row>
