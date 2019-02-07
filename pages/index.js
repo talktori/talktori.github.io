@@ -17,15 +17,15 @@ const Header = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 175px;
-  height: 32px;
+  width: 112px;
+  height: 40px;
   display: inline-block;
 `;
 
 const Content = styled.section`
   max-width: 1100px;
   min-height: calc(100vh - 250px);
-  padding: 55px 24px 105px 24px;
+  padding: 15px 24px 75px 24px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -38,11 +38,15 @@ const Content = styled.section`
 `;
 
 const Title = styled.h2`
-  color: #FFFFFF;
+  color: #0F328D;
   font-size: 28px;
   font-weight: bold;
   letter-spacing: -0.96px;
   line-height: 36px;
+
+  > span {
+    color: white;
+  }
 
   @media (min-width: 768px) {
     font-size: 40px;
@@ -90,9 +94,9 @@ const Preview = styled.i`
   width: 100%;
   min-width: 100px;
   max-width: 515px;
-  height: 408px;
+  height: 500px;
   display: block;
-  background: url('/static/img/preview-people@2x.png');
+  background: url('/static/img/preview2@2x.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -112,7 +116,7 @@ const Button = styled.a`
   height: 48px;
   padding: 0 32px;
   border-radius: 28px;
-  background-color: #EB7D9A;
+  background-color: #0F328D;
   color: white;
   cursor: pointer;
   display: inline-block;
@@ -143,14 +147,19 @@ export default () => (
   <Layout>
     <Wrap>
       <Header>
-        <Logo src="/static/img/logo2@2x.png" alt="Talk to Ri" />
+        <Logo src="/static/img/logo3@2x.png" alt="Talk to Ri" />
       </Header>
       <Content>
         <Row>
           <Title>
-            English and soft skills for tech professionals
+            <span>English</span> and Soft Skills
+            <br />
+            for Tech Specialists
           </Title>
-          <Description>Voice-based conversations trainer</Description>
+          <Description>
+            Prepare for job interviews, presentations, small talks,
+            integration in multicultural teams and many more on real work cases.
+          </Description>
           <Button href="https://itunes.apple.com/us/app/talk-to-ri-business-english/id1435391859?mt=8">
             <ButtonContent>
               <AppleIcon />
